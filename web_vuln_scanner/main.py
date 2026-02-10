@@ -9,7 +9,7 @@ Usage:
     python main.py --target http://localhost:8080 --modules sqli,xss
     python main.py --help
 
-Author: [Your Name]
+Author: Syed Saif Sikander
 For: Internship Project
 """
 
@@ -478,3 +478,4 @@ def run_scanner(args):
 if __name__ == "__main__":
     args = parse_arguments()
     run_scanner(args)
+
