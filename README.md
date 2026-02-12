@@ -57,14 +57,13 @@ python main.py --help
 | `--modules` | Vulnerabilities to test (sqli,xss,cmdi,traversal,forms) | all |
 | `--security` | DVWA security level (low, medium, high, impossible) | low |
 | `--output` | Custom output report filename | auto-generated |
-| `--verbose` | Show detailed output | False |
 | `--no-forms` | Skip automatic form scanning | False |
 
 ## Output
 
 The scanner generates:
 1. **Console Output** - Real-time scan progress and findings
-2. **Report File** - Detailed HTML/text report in the project directory
+2. **Report File** - Detailed text report in the project directory
 3. **Log Files** - Complete scan logs in the `logs/` directory
 
 ## Project Structure
@@ -72,38 +71,33 @@ The scanner generates:
 ```
 web-vuln-scanner/
 ├── main.py                 # Entry point, CLI interface
-├── config.py              # Configuration settings
-├── requirements.txt       # Python dependencies
-├── auth/                  # Authentication handlers
+├── requirements.txt        # Python dependencies
+├── MULTI_APP_GUIDE.md      # Multi-app usage guide
+├── PROJECT_MAP.md          # Project documentation
+├── auth/                   # Authentication handlers
 │   └── session_handler.py
-├── scanner/               # Vulnerability testing modules
-│   ├── sqli.py           # SQL Injection tests
-│   ├── xss.py            # XSS tests
-│   ├── cmdi.py           # Command Injection tests
-│   ├── traversal.py      # Path Traversal tests
-│   └── form_scanner.py   # Form discovery and testing
-├── crawler/               # Web crawling functionality
-│   └── crawler.py
-├── analyzer/              # Response analysis
-│   └── response_analyzer.py
-├── report/                # Report generation
+├── scanner/                # Vulnerability testing modules
+│   ├── sqli.py            # SQL Injection tests
+│   ├── xss.py             # XSS tests
+│   ├── cmdi.py            # Command Injection tests
+│   ├── traversal.py       # Path Traversal tests
+│   └── form_scanner.py    # Form discovery and testing
+├── report/                 # Report generation
 │   └── report_generator.py
-├── utils/                 # Utility functions
+├── utils/                  # Utility functions
 │   ├── loggers.py
 │   ├── rate_limiter.py
 │   └── vuln_definitions.py
-└── validator/             # Input validation
-    └── target_validator.py
+└── logs/                   # Generated log files (runtime)
 ```
 
 ## How It Works
 
 1. **Session Creation** - Establishes authenticated session with target
-2. **Crawling** - Discovers forms and input fields (if enabled)
-3. **Payload Injection** - Tests each input with vulnerability-specific payloads
-4. **Response Analysis** - Analyzes responses for vulnerability indicators
-5. **Verification** - Confirms findings to reduce false positives
-6. **Report Generation** - Creates comprehensive security report with remediation steps
+2. **Payload Injection** - Tests each input with vulnerability-specific payloads
+3. **Response Analysis** - Analyzes responses for vulnerability indicators
+4. **Verification** - Confirms findings to reduce false positives
+5. **Report Generation** - Creates comprehensive security report with remediation steps
 
 ## Technologies Used
 
@@ -129,6 +123,10 @@ This scanner is designed to work with intentionally vulnerable web applications:
 - Unauthorized scanning of websites is illegal and unethical
 - The authors are not responsible for misuse of this tool
 - Always follow responsible disclosure practices
+
+## Author
+
+Syed Saif Sikander - Internship Project
 
 ## License
 
